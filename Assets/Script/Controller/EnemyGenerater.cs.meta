@@ -1,0 +1,32 @@
+fileFormatVersion: 2
+guid: 73c82a000400b3d449200978adf902c3
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - MobOnePrefab: {fileID: 4831299064929595689, guid: 4bbc55e148774d644836a779bae72d95, type: 3}
+  - MobTwoPrefab: {fileID: 9192964232584208415, guid: fdb874e167afa164b87c99aa522f5155, type: 3}
+  - MobThreePrefab: {fileID: 2552441470563192020, guid: 8ad3696e4e7e1354d9a33149b5183458, type: 3}
+  - MobFourPrefab: {fileID: 9074840793744525568, guid: 00b529caf46aac243a15ced73f66a0c0, type: 3}
+  - MobFivePrefab: {fileID: 7501547990990337977, guid: 4516c4aa5f27ef648ac444d70a987c22, type: 3}
+  - MobTwoRightPrefab: {fileID: 6501996697754397458, guid: 86a89477c6b6d5b499a7884bc1e663c8, type: 3}
+  - MobTwoLeftPrefab: {fileID: 1230380000041456749, guid: e1554d0f9a186ae46835b27c91f855fe, type: 3}
+  - AinessPrefab: {fileID: 5854889877142205610, guid: a619ab21ccfee0d4dbdd0d428c335fc5, type: 3}
+  - GorusiPrefab: {fileID: 8267017545892141127, guid: 308c69fc1109fde488426ae66186a9be, type: 3}
+  - MalzennPrefab: {fileID: 5274011202230652440, guid: 0d89aa5531cf07c4885bc45871eaa362, type: 3}
+  - CrownPrefab: {fileID: 1401306035382030560, guid: 5f1ad340f62c10e4f9cd81ec5562772b, type: 3}
+  - SuzukaPrefab: {fileID: 3530916428106746303, guid: cd116fabd2a2f844f95649a390b0759b, type: 3}
+  - KitasannPrefab: {fileID: 6123402002495432935, guid: 93183bcf55a95904294c6ad3e68e6a38, type: 3}
+  - BurubonnPrefab: {fileID: 2211902334203481091, guid: 27f0018fe98619e48ae91041f7cc8148, type: 3}
+  - SatonoDiamondPrefab: {fileID: 8155964485722010236, guid: 175067984a087614eb5b100b42fc2515, type: 3}
+  - FalkoPrefab: {fileID: 8079179582404248524, guid: 969551eaf84ff08458fc33cd5e46ee95, type: 3}
+  - DouramentePrefab: {fileID: 1759390950497940139, guid: c17114d641ad6cd44bfb026193a0f08c, type: 3}
+  - GorusiMiddleBossPrefab: {fileID: 3117715817903343920, guid: e92874510fe0c6d43a3c544b703eae50, type: 3}
+  - VirusinaPrefab: {fileID: 4751502564622052552, guid: 0179d1f1c0cbcc5449db518aad65b8ce, type: 3}
+  - VirusinaMiddleBossPrefab: {fileID: 5962837062643963652, guid: c6af1919ee1a8dd46bdd98bb14f73798, type: 3}
+  - VivurosPrefab: {fileID: 2747173844804990026, guid: 213e6823523c330408a06cbe4e38993d, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
