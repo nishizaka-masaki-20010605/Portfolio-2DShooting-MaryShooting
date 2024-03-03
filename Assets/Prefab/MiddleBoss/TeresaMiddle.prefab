@@ -353,7 +353,7 @@ GameObject:
   - component: {fileID: 4835142773111799602}
   - component: {fileID: 7134924777712425315}
   - component: {fileID: 7367476170509738704}
-  - component: {fileID: 2550340088057774146}
+  - component: {fileID: 4634569899154292541}
   m_Layer: 0
   m_Name: TeresaMiddle
   m_TagString: MiddleBoss
@@ -477,7 +477,7 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &2550340088057774146
+--- !u!114 &4634569899154292541
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -486,11 +486,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 5586343967214600389}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a28335f0e8335c949bc0e0611518e56b, type: 3}
+  m_Script: {fileID: 11500000, guid: dae2b602b7c8d584eae0a8b54e1584aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   HP: 0
-  player: {fileID: 5800393144260920044, guid: 426adc66a9dba9f4fa1c08eed5f8d30c, type: 3}
+  player: {fileID: 0}
   EnemyBulletPrefab: {fileID: 7644063394340569060, guid: 138406617a8b51a499d5c1142351c703, type: 3}
   EnemyHPSlider: {fileID: 2617901268223690278}
 --- !u!1 &8982027862369968789

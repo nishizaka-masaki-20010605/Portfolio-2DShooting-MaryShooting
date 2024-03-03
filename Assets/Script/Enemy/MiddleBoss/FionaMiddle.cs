@@ -13,13 +13,16 @@ public class FionaMiddle : EnemyBase
     private int count;
     private float speed = 200.0f;
     public Slider EnemyHPSlider;
+    private int angle_x = 0;
+    private int angle_y = 180;
 
     void Start()
     {
-        HP = 100;
+        HP = 700;
         EnemyHPSlider.maxValue = HP;
         EnemyHPSlider.value = HP;
         StartCoroutine(CPU());
+        StartCoroutine(Kaiten());
         player = GameObject.Find("Player");
     }
     void Update()
@@ -51,19 +54,23 @@ public class FionaMiddle : EnemyBase
         }
         while (true)
         {
-            yield return new WaitForSeconds(1.0f);
-            yield return ShotRandomSpawnW(10,180,4.0f,-4.0f, 1.0f,-1.0f);
-            yield return new WaitForSeconds(5.0f);
-            yield return WaveMShotAimN(5,12);
-            yield return new WaitForSeconds(5.0f);
-            yield return ShotConstantDirectionM(12, 210, 150);
-            yield return new WaitForSeconds(5.0f);
-            yield return ShotAllDirection(18, 3);
-            yield return new WaitForSeconds(5.0f);
-            yield return ShotNCurveM(2,16);
-            yield return new WaitForSeconds(5.0f);
-            yield return ShotSpiralM(6, 7 ,0.02f);
-            yield return new WaitForSeconds(5.0f);
+            angle_x  = angle_x + 1;
+            angle_y  = angle_y + 1;
+            yield return ShotConstantDirectionM(1, angle_x,angle_y);//oは数、ｘｙは角度
+        }
+    }
+    IEnumerator Kaiten()
+    {
+        // 特定の位置より上だったら
+        while (transform.position.y > 3f)
+        {
+            transform.position -= new Vector3(0, 2, 0) * Time.deltaTime;
+            yield return null; //1フレーム(0.02秒)待つ
+        }
+        while (true)
+        {
+            yield return ShotSpiralM(20, 12 ,0.1f);
+            yield return new WaitForSeconds(10.0f);
         }
     }
     private void ShotAim()

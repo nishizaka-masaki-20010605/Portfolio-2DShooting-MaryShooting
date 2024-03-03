@@ -16,10 +16,11 @@ public class Hanna : EnemyBase
 
     void Start()
     {
-        HP = 100;
+        HP = 500;
         EnemyHPSlider.maxValue = HP;
         EnemyHPSlider.value = HP;
         StartCoroutine(CPU());
+        StartCoroutine(Kousi());
         player = GameObject.Find("Player");
     }
     void Update()
@@ -52,18 +53,13 @@ public class Hanna : EnemyBase
         while (true)
         {
             yield return new WaitForSeconds(1.0f);
-            yield return ShotRandomSpawnW(10,180,4.0f,-4.0f, 1.0f,-1.0f);
-            yield return new WaitForSeconds(5.0f);
-            yield return WaveMShotAimN(5,12);
-            yield return new WaitForSeconds(5.0f);
-            yield return ShotConstantDirectionM(12, 210, 150);
-            yield return new WaitForSeconds(5.0f);
-            yield return ShotAllDirection(18, 3);
-            yield return new WaitForSeconds(5.0f);
-            yield return ShotNCurveM(2,16);
-            yield return new WaitForSeconds(5.0f);
-            yield return ShotSpiralM(6, 7 ,0.02f);
-            yield return new WaitForSeconds(5.0f);
+            yield return ShotRandomSpawnW(20,180,6.0f,-6.0f, 4.0f,2.0f);
+        }
+    }
+    IEnumerator Kousi(){
+        while(true){
+            yield return ShotConstantDirectionM(20, 150,210);//oは数、ｘｙは角度
+            yield return ShotConstantDirectionM(20, 135,225);//oは数、ｘｙは角度
         }
     }
     private void ShotAim()

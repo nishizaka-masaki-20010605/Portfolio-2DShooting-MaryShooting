@@ -11,12 +11,12 @@ public class Sakura : EnemyBase
     public BossEnemyBullet EnemyBulletPrefab;
 
     private int count;
-    private float speed = 200.0f;
+    private float speed = 350.0f;
     public Slider EnemyHPSlider;
 
     void Start()
     {
-        HP = 100;
+        HP = 500;
         EnemyHPSlider.maxValue = HP;
         EnemyHPSlider.value = HP;
         StartCoroutine(CPU());
@@ -51,19 +51,14 @@ public class Sakura : EnemyBase
         }
         while (true)
         {
-            yield return new WaitForSeconds(1.0f);
-            yield return ShotRandomSpawnW(10,180,4.0f,-4.0f, 1.0f,-1.0f);
-            yield return new WaitForSeconds(5.0f);
             yield return WaveMShotAimN(5,12);
-            yield return new WaitForSeconds(5.0f);
-            yield return ShotConstantDirectionM(12, 210, 150);
-            yield return new WaitForSeconds(5.0f);
-            yield return ShotAllDirection(18, 3);
-            yield return new WaitForSeconds(5.0f);
-            yield return ShotNCurveM(2,16);
-            yield return new WaitForSeconds(5.0f);
-            yield return ShotSpiralM(6, 7 ,0.02f);
-            yield return new WaitForSeconds(5.0f);
+            yield return new WaitForSeconds(2.0f);
+            yield return WaveMShotAimN(12,5);
+            yield return new WaitForSeconds(2.0f);
+            yield return WaveMShotAimN(8,8);
+            yield return new WaitForSeconds(2.0f);
+            yield return WaveMShotAimN(6,10);
+            yield return new WaitForSeconds(2.0f);
         }
     }
     private void ShotAim()

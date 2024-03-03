@@ -16,7 +16,7 @@ public class AoiMiddle : EnemyBase
 
     void Start()
     {
-        HP = 100;
+        HP = 400;
         EnemyHPSlider.maxValue = HP;
         EnemyHPSlider.value = HP;
         StartCoroutine(CPU());
@@ -51,19 +51,14 @@ public class AoiMiddle : EnemyBase
         }
         while (true)
         {
+            yield return ShotAllDirection(9, 18);
             yield return new WaitForSeconds(1.0f);
-            yield return ShotRandomSpawnW(10,180,4.0f,-4.0f, 1.0f,-1.0f);
-            yield return new WaitForSeconds(5.0f);
-            yield return WaveMShotAimN(5,12);
-            yield return new WaitForSeconds(5.0f);
-            yield return ShotConstantDirectionM(12, 210, 150);
-            yield return new WaitForSeconds(5.0f);
-            yield return ShotAllDirection(18, 3);
-            yield return new WaitForSeconds(5.0f);
-            yield return ShotNCurveM(2,16);
-            yield return new WaitForSeconds(5.0f);
-            yield return ShotSpiralM(6, 7 ,0.02f);
-            yield return new WaitForSeconds(5.0f);
+            yield return ShotAllDirection_right(12, 18);
+            yield return new WaitForSeconds(1.0f);
+            yield return ShotAllDirection_left(15, 18);
+            yield return new WaitForSeconds(1.0f);
+            yield return ShotAllDirection(18, 18);
+            yield return new WaitForSeconds(1.0f);
         }
     }
     private void ShotAim()
@@ -113,6 +108,36 @@ public class AoiMiddle : EnemyBase
         for (int i = 1; i <= count; i++)
         {
             Shot(i*360/count);
+        }
+    }
+    private void ShotAllDirection_right(int count)
+    {
+        for (int i = 1; i <= count; i++)
+        {
+            Shot_right_position(i*360/count);
+        }
+    }
+    IEnumerator ShotAllDirection_right(int count, int wave)
+    {
+        for (int w = 0; w < wave; w++)
+        {
+            yield return new WaitForSeconds(0.1f);
+            ShotAllDirection_right(count);
+        }
+    }
+    private void ShotAllDirection_left(int count)
+    {
+        for (int i = 1; i <= count; i++)
+        {
+            Shot_left_position(i*360/count);
+        }
+    }
+    IEnumerator ShotAllDirection_left(int count, int wave)
+    {
+        for (int w = 0; w < wave; w++)
+        {
+            yield return new WaitForSeconds(0.1f);
+            ShotAllDirection_left(count);
         }
     }
     IEnumerator ShotAllDirection(int count, int wave)
@@ -200,6 +225,24 @@ public class AoiMiddle : EnemyBase
             yield return new WaitForSeconds(0.1f);
             ShotRandomSpawn(count,dx,fx,dy,fy);;
         }
+    }
+    private void Shot_right_position(float count)
+    {
+
+        BossEnemyBullet EnemyBullet =
+       Instantiate(EnemyBulletPrefab, new Vector3(3.0f,2f,0f), Quaternion.identity);
+        Rigidbody EnemyBulletRb = EnemyBullet.GetComponent<Rigidbody>();
+        Vector3 angle = new Vector3(0, 0, count);
+        EnemyBulletRb.AddForce(Quaternion.Euler(angle) * Vector3.up * speed);
+    }
+    private void Shot_left_position(float count)
+    {
+
+        BossEnemyBullet EnemyBullet =
+       Instantiate(EnemyBulletPrefab, new Vector3(-3.0f,2f,0f), Quaternion.identity);
+        Rigidbody EnemyBulletRb = EnemyBullet.GetComponent<Rigidbody>();
+        Vector3 angle = new Vector3(0, 0, count);
+        EnemyBulletRb.AddForce(Quaternion.Euler(angle) * Vector3.up * speed);
     }
     private void Shot(float count)
     {

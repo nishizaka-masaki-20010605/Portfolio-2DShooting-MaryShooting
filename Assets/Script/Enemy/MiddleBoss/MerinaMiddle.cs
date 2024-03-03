@@ -16,7 +16,7 @@ public class MerinaMiddle : EnemyBase
 
     void Start()
     {
-        HP = 100;
+        HP = 300;
         EnemyHPSlider.maxValue = HP;
         EnemyHPSlider.value = HP;
         StartCoroutine(CPU());
@@ -51,19 +51,10 @@ public class MerinaMiddle : EnemyBase
         }
         while (true)
         {
+            yield return ShotSpiralM(3, 36 ,0.02f);
             yield return new WaitForSeconds(1.0f);
-            yield return ShotRandomSpawnW(10,180,4.0f,-4.0f, 1.0f,-1.0f);
-            yield return new WaitForSeconds(5.0f);
-            yield return WaveMShotAimN(5,12);
-            yield return new WaitForSeconds(5.0f);
-            yield return ShotConstantDirectionM(12, 210, 150);
-            yield return new WaitForSeconds(5.0f);
-            yield return ShotAllDirection(18, 3);
-            yield return new WaitForSeconds(5.0f);
-            yield return ShotNCurveM(2,16);
-            yield return new WaitForSeconds(5.0f);
-            yield return ShotSpiralM(6, 7 ,0.02f);
-            yield return new WaitForSeconds(5.0f);
+            yield return ShotSpiralM(3, 17 ,0.02f);
+            yield return new WaitForSeconds(0.5f);
         }
     }
     private void ShotAim()

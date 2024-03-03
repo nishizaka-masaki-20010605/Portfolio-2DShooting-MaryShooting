@@ -12,11 +12,13 @@ public class Aoi : EnemyBase
 
     private int count;
     private float speed = 200.0f;
+    private float speed_one = 100.0f;
+    private float speed_three = 300.0f;
     public Slider EnemyHPSlider;
 
     void Start()
     {
-        HP = 100;
+        HP = 400;
         EnemyHPSlider.maxValue = HP;
         EnemyHPSlider.value = HP;
         StartCoroutine(CPU());
@@ -52,18 +54,12 @@ public class Aoi : EnemyBase
         while (true)
         {
             yield return new WaitForSeconds(1.0f);
-            yield return ShotRandomSpawnW(10,180,4.0f,-4.0f, 1.0f,-1.0f);
-            yield return new WaitForSeconds(5.0f);
-            yield return WaveMShotAimN(5,12);
-            yield return new WaitForSeconds(5.0f);
-            yield return ShotConstantDirectionM(12, 210, 150);
-            yield return new WaitForSeconds(5.0f);
-            yield return ShotAllDirection(18, 3);
-            yield return new WaitForSeconds(5.0f);
-            yield return ShotNCurveM(2,16);
-            yield return new WaitForSeconds(5.0f);
-            yield return ShotSpiralM(6, 7 ,0.02f);
-            yield return new WaitForSeconds(5.0f);
+            yield return ShotConstantDirectionM(20, 210, 150);
+            yield return ShotConstantDirectionM_left(24, 210, 150);
+            yield return ShotConstantDirectionM_right(24, 210, 150);
+            yield return ShotConstantDirectionM(35, 240, 110);
+            yield return ShotConstantDirectionM_left(12, 210, 180);
+            yield return ShotConstantDirectionM_right(20, 180, 150);
         }
     }
     private void ShotAim()
@@ -100,6 +96,71 @@ public class Aoi : EnemyBase
         Shot(x);
         Shot(y);
     }
+    private void ShotConstantDirection_right_two(int x,int y)
+    {
+        Shot_right_position(x);
+        Shot_right_position(y);
+    }
+    private void ShotConstantDirection_left_two(int x,int y)
+    {
+        Shot_left_position(x);
+        Shot_left_position(y);
+    }
+    private void ShotConstantDirection_two(int x,int y)
+    {
+        Shot_three(x);
+        Shot_one(y);
+    }
+    private void ShotConstantDirection_right(int x,int y)
+    {
+        Shot_right_position(x);
+        Shot_right_position_one(y);
+    }
+    private void ShotConstantDirection_left(int x,int y)
+    {
+        Shot_left_position_three(x);
+        Shot_left_position(y);
+    }
+    IEnumerator ShotConstantDirectionM_right_two(int o, int x,int y)//oは数、ｘｙは角度
+    {
+        for (int w = 0; w < o; w++)
+        {
+            yield return new WaitForSeconds(0.1f);
+            ShotConstantDirection_right_two(x,y);
+        }
+    }
+    IEnumerator ShotConstantDirectionM_left_two(int o, int x,int y)//oは数、ｘｙは角度
+    {
+        for (int w = 0; w < o; w++)
+        {
+            yield return new WaitForSeconds(0.1f);
+            ShotConstantDirection_left_two(x,y);
+        }
+    }
+    IEnumerator ShotConstantDirectionM_two(int o, int x,int y)//oは数、ｘｙは角度
+    {
+        for (int w = 0; w < o; w++)
+        {
+            yield return new WaitForSeconds(0.1f);
+            ShotConstantDirection_two(x,y);
+        }
+    }
+    IEnumerator ShotConstantDirectionM_right(int o, int x,int y)//oは数、ｘｙは角度
+    {
+        for (int w = 0; w < o; w++)
+        {
+            yield return new WaitForSeconds(0.1f);
+            ShotConstantDirection_right(x,y);
+        }
+    }
+    IEnumerator ShotConstantDirectionM_left(int o, int x,int y)//oは数、ｘｙは角度
+    {
+        for (int w = 0; w < o; w++)
+        {
+            yield return new WaitForSeconds(0.1f);
+            ShotConstantDirection_left(x,y);
+        }
+    }
     IEnumerator ShotConstantDirectionM(int o, int x,int y)//oは数、ｘｙは角度
     {
         for (int w = 0; w < o; w++)
@@ -108,21 +169,7 @@ public class Aoi : EnemyBase
             ShotConstantDirection(x,y);
         }
     }
-    private void ShotAllDirection(int count)
-    {
-        for (int i = 1; i <= count; i++)
-        {
-            Shot(i*360/count);
-        }
-    }
-    IEnumerator ShotAllDirection(int count, int wave)
-    {
-        for (int w = 0; w < wave; w++)
-        {
-            yield return new WaitForSeconds(0.1f);
-            ShotAllDirection(count);
-        }
-    }
+
     private void ShotN(int count)
     {
         for (int i = 1; i <= count; i++)
@@ -130,77 +177,45 @@ public class Aoi : EnemyBase
             Shot(180 - 15 * (count / 2 + 1) + (15 * i));
         }
     }
-    IEnumerator ShotNRandom(int count)
+
+    private void Shot_right_position(float count)
     {
-        for (int i = 1; i <= count; i++)
-        {
-            int randomValue = Random.Range(1, 360);;
-            Shot(randomValue);
-            yield return new WaitForSeconds(0.02f);
-        }
-    }
-    IEnumerator WaveMShotN(int o, int n)
-    {
-        for (int w = 0; w < o; w++)
-        {
-            yield return new WaitForSeconds(0.1f);
-            ShotN(n);
-        }
-    }
-    IEnumerator ShotNCurve(int count)
-    {
-        int bulletCount = count;
-        for (int i = 0; i < bulletCount; i++)
-        {
-            float angle = i * (2 * Mathf.PI / bulletCount) * Mathf.Rad2Deg;
-            Shot(angle);
-            Shot(-angle);
-            yield return new WaitForSeconds(0.1f);
-        }
-    }
-    IEnumerator ShotNCurveM(int o, int n)
-    {
-        for (int w = 0; w < o; w++)
-        {
-            yield return new WaitForSeconds(1.0f);
-            yield return ShotNCurve(n);;
-        }
-    }
-    IEnumerator ShotSpiral(int count,float time)
-    {
-        int bulletCount = count;
-        for (int i = 0; i < bulletCount; i++)
-        {
-            float angle = i * (2 * Mathf.PI / bulletCount) * Mathf.Rad2Deg;
-            Shot(angle);
-            yield return new WaitForSeconds(time);
-        }
-    }
-    IEnumerator ShotSpiralM(int o, int count,float time)
-    {
-        for (int w = 0; w < o; w++)
-        {
-            yield return new WaitForSeconds(0.1f);
-            yield return ShotSpiral(count,time);
-        }
-    }
-    private void ShotRandomSpawn(float count,float dx,float fx, float dy,float fy)
-    {
-		float x = Random.Range(dx, fx);
-		float y = Random.Range(dy, fy);
+
         BossEnemyBullet EnemyBullet =
-       Instantiate(EnemyBulletPrefab, new Vector3(x, y, 0), Quaternion.identity);
+       Instantiate(EnemyBulletPrefab, new Vector3(3.0f,2f,0f), Quaternion.identity);
         Rigidbody EnemyBulletRb = EnemyBullet.GetComponent<Rigidbody>();
         Vector3 angle = new Vector3(0, 0, count);
         EnemyBulletRb.AddForce(Quaternion.Euler(angle) * Vector3.up * speed);
     }
-    IEnumerator ShotRandomSpawnW(int number,float count,float dx,float fx, float dy,float fy){
-        for (int w = 0; w < number; w++)
-        {
-            yield return new WaitForSeconds(0.1f);
-            ShotRandomSpawn(count,dx,fx,dy,fy);;
-        }
+    private void Shot_left_position(float count)
+    {
+
+        BossEnemyBullet EnemyBullet =
+       Instantiate(EnemyBulletPrefab, new Vector3(-3.0f,2f,0f), Quaternion.identity);
+        Rigidbody EnemyBulletRb = EnemyBullet.GetComponent<Rigidbody>();
+        Vector3 angle = new Vector3(0, 0, count);
+        EnemyBulletRb.AddForce(Quaternion.Euler(angle) * Vector3.up * speed);
     }
+
+    private void Shot_right_position_one(float count)
+    {
+
+        BossEnemyBullet EnemyBullet =
+       Instantiate(EnemyBulletPrefab, new Vector3(3.0f,2f,0f), Quaternion.identity);
+        Rigidbody EnemyBulletRb = EnemyBullet.GetComponent<Rigidbody>();
+        Vector3 angle = new Vector3(0, 0, count);
+        EnemyBulletRb.AddForce(Quaternion.Euler(angle) * Vector3.up * speed_one);
+    }
+    private void Shot_left_position_three(float count)
+    {
+
+        BossEnemyBullet EnemyBullet =
+       Instantiate(EnemyBulletPrefab, new Vector3(-3.0f,2f,0f), Quaternion.identity);
+        Rigidbody EnemyBulletRb = EnemyBullet.GetComponent<Rigidbody>();
+        Vector3 angle = new Vector3(0, 0, count);
+        EnemyBulletRb.AddForce(Quaternion.Euler(angle) * Vector3.up * speed_three);
+    }
+
     private void Shot(float count)
     {
 
@@ -209,5 +224,23 @@ public class Aoi : EnemyBase
         Rigidbody EnemyBulletRb = EnemyBullet.GetComponent<Rigidbody>();
         Vector3 angle = new Vector3(0, 0, count);
         EnemyBulletRb.AddForce(Quaternion.Euler(angle) * Vector3.up * speed);
+    }
+    private void Shot_three(float count)
+    {
+
+        BossEnemyBullet EnemyBullet =
+       Instantiate(EnemyBulletPrefab, transform.position, Quaternion.identity);
+        Rigidbody EnemyBulletRb = EnemyBullet.GetComponent<Rigidbody>();
+        Vector3 angle = new Vector3(0, 0, count);
+        EnemyBulletRb.AddForce(Quaternion.Euler(angle) * Vector3.up * speed_three);
+    }
+    private void Shot_one(float count)
+    {
+
+        BossEnemyBullet EnemyBullet =
+       Instantiate(EnemyBulletPrefab, transform.position, Quaternion.identity);
+        Rigidbody EnemyBulletRb = EnemyBullet.GetComponent<Rigidbody>();
+        Vector3 angle = new Vector3(0, 0, count);
+        EnemyBulletRb.AddForce(Quaternion.Euler(angle) * Vector3.up * speed_one);
     }
 }
