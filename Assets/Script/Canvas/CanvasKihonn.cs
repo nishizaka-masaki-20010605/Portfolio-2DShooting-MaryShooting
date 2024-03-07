@@ -9,21 +9,18 @@ public class CanvasKihonn : MonoBehaviour
     [SerializeField] Text nameText;//名前
     [SerializeField] Text ContentText;//会話内容
     [SerializeField] private CanvasGroup a;//透過度
-    // bool isOnce = true;//名前を入れ替えるのに必要なフラグ
     public static CanvasKihonn instance;
     public bool BossStart = true;//ボスステージに行くときにPlayerを再び動かせるようにする
-    int NextSceneCountMax;
-    int NextSceneCountMaxNext;
-    public int count = 0;
-    public int countNext = 0;
-    int alphaCount = 0;//ラスボスを倒した後にもう一度ゼロに戻す！！！
+    int NextSceneCountMax;//中ボスとの会話が終わったかの判断につかう
+    int NextSceneCountMaxNext;//次のステージに行くかどうかの判断につかう
+    public int count = 0;//戦闘前の会話用
+    public int countNext = 0;//戦闘後の会話用（分けるのはわかりやすくするため）
+    int alphaCount = 0;//次のステージでCanwasが表示されないようにする保険
     private Image Leftimg;
     private Image Rightimg;
 
     public GameObject Player;
     string StageName;
-
-    //ステージによって変える部分
 
     //表情　
     /* マリー　Kihonn　Nikkori Warai　Bikkuri Ikari　Konwaku Akire　Niyaniya　Ase　Kusyou　Gimonn Ikariwarai Hatena
@@ -359,8 +356,8 @@ public class CanvasKihonn : MonoBehaviour
 
     void Start()
     {
-        StageName = SceneManager.GetActiveScene().name;
-        switch (StageName)
+        StageName = SceneManager.GetActiveScene().name;//現在のステージ名を取得
+        switch (StageName)//ステージ名によってメインボスとの会話テキスト数を取得
         {
             case "Stage1":
                 NextSceneCountMax = 9;
@@ -404,7 +401,7 @@ public class CanvasKihonn : MonoBehaviour
     }
     void Update()
     {
-        if (GameClearController.instance.MiddleBossClear)
+        if (GameController.instance.MiddleBossClear)
         {
             StartCoroutine("AlphaUp");//Canvasを表示するコルーチン
             switch (StageName)
@@ -441,12 +438,12 @@ public class CanvasKihonn : MonoBehaviour
                 {
                     StopCoroutine("AlphaUp");//Upコルーチン停止
                     StartCoroutine("AlphaDown");//キャンバスを見えるようにする
-                    BossStart = false;//ボスにつなぐために必要
+                    BossStart = false;//メインボスにつなぐために必要
                     Player.SetActive(true);
                 }
             }
         }
-        else if (GameClearController.instance.MainBossClear)
+        else if (GameController.instance.MainBossClear)
         {
             alphaCount = 0;
             StartCoroutine("AlphaUp");
@@ -514,10 +511,10 @@ public class CanvasKihonn : MonoBehaviour
     }
     void Stage1()
     {
-        ContentText.text = number[count];
-        nameText.text = CharacterName1[count];
-        Leftimg.sprite = Resources.Load<Sprite>("LeftImage/Mary" + Leftimgtest[count].ToString()); //ステージによって変える部分
-        Rightimg.sprite = Resources.Load<Sprite>("RightImage/Hanna" + Rightimgtest[count].ToString()); //ステージによって変える部分
+        ContentText.text = number[count];//会話内容を代入
+        nameText.text = CharacterName1[count];//名前を代入
+        Leftimg.sprite = Resources.Load<Sprite>("LeftImage/Mary" + Leftimgtest[count].ToString()); //どの画像を左側に表示させるか
+        Rightimg.sprite = Resources.Load<Sprite>("RightImage/Hanna" + Rightimgtest[count].ToString()); //右側
     }
     void Stage1Next()
     {
@@ -611,7 +608,7 @@ public class CanvasKihonn : MonoBehaviour
         Leftimg.sprite = Resources.Load<Sprite>("LeftImage/Mary" + LeftimgTestNext7[countNext].ToString()); //ステージによって変える部分
         Rightimg.sprite = Resources.Load<Sprite>("RightImage7/Fiona" + RightimgTextNext7[countNext].ToString()); //ステージによって変える部分
     }
-    IEnumerator AlphaDown()
+    IEnumerator AlphaDown()//このCanvasを透過する（透過なのは、Objectfalseすると表示させるのが大変なため）
     {
         while (a.alpha >= 0)
         {
@@ -620,7 +617,7 @@ public class CanvasKihonn : MonoBehaviour
         }
         yield break;
     }
-    IEnumerator AlphaUp()
+    IEnumerator AlphaUp()//Canvasを表示する
     {
         while (alphaCount < 100)
         {

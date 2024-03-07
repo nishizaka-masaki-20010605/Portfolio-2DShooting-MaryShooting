@@ -62,34 +62,8 @@ public class Aoi : EnemyBase
             yield return ShotConstantDirectionM_right(20, 180, 150);
         }
     }
-    private void ShotAim()
-    {
 
-        BossEnemyBullet EnemyBullet =
-       Instantiate(EnemyBulletPrefab, transform.position, Quaternion.identity);
-        Rigidbody EnemyBulletRb = EnemyBullet.GetComponent<Rigidbody>();
-        Vector3 vector3 = player.transform.position - this.transform.position;
 
-        EnemyBulletRb.AddForce(vector3 * 30.0f);
-    }
-    private void ShotAimN(int count)
-    {
-        Vector3 vector3 = player.transform.position - this.transform.position;
-        float angle = Mathf.Atan2(vector3.x, -vector3.y) * Mathf.Rad2Deg;
-        float angle_Set = angle + 180;
-        for (int i = 1; i <= count; i++)
-        {
-            Shot(angle_Set - 15 * (count / 2 + 1) + (15 * i));
-        }
-    }
-    IEnumerator WaveMShotAimN(int o, int n)
-    {
-        for (int w = 0; w < o; w++)
-        {
-            yield return new WaitForSeconds(0.1f);
-            ShotAimN(n);
-        }
-    }
 
     private void ShotConstantDirection(int x,int y)
     {

@@ -8,15 +8,25 @@ public class GameController : MonoBehaviour
 {
     public GameObject gameOverText;
 
-    //public Text ScoreText;
-    //int score = 0;
+	private GameObject[] MiddleObjects;
+    private GameObject[] MainObjects;
+
+    public static GameController instance;
+
+    public bool MiddleBossClear =false;
+    public bool MainBossClear =false;
+    
+        public void Awake()
+    {
+        if(instance == null)
+        {
+            instance = this;
+        }
+    }
     void Start()
     {
         //ゲームオーバーテキストを非表示
         gameOverText.SetActive(false);
-
-        //スコアテキストを表示
-        //ScoreText.text = "SCORE:" + score;
     }
     void Update()
     {
@@ -28,14 +38,19 @@ public class GameController : MonoBehaviour
                SceneManager.LoadScene("Stage1");
             }
         }
+		MiddleObjects = GameObject.FindGameObjectsWithTag("MiddleBoss");//ここにないと、ステージをスタートしてすぐに会話が始まってしまう
+
+		if(MiddleObjects.Length == 0 && EnemyGenerater.instance.MiddleBossFlag){
+            MiddleBossClear =true;
+		}
+        MainObjects = GameObject.FindGameObjectsWithTag("MainBoss");
+
+		if(MainObjects.Length == 0 && EnemyGenerater.instance.MainBossFlag){
+            MiddleBossClear = false;//中ボスのフラグ解除
+            MainBossClear =true;//メインボスが今いるという信号
+		}
         
     }
-    //スコア加算メソッド
-    // public void AddScore()
-    // {
-    //     score += 100;
-    //     ScoreText.text = "SCORE:" + score;
-    // }
     public void GameOver()
     {
         gameOverText.SetActive(true);

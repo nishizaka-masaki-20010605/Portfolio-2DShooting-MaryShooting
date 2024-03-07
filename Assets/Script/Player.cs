@@ -20,18 +20,18 @@ public class Player : MonoBehaviour
     
     void Update()
     {
-        if (GameClearController.instance.MiddleBossClear
+        if (GameController.instance.MiddleBossClear
             &&  CanvasKihonn.instance.BossStart)
         {
             gameObject.SetActive(false);
         }
-        else if(GameClearController.instance.MiddleBossClear  
+        else if(GameController.instance.MiddleBossClear  
                 &&  !CanvasKihonn.instance.BossStart)
         {
             Move();
             Shot();
             Destroy();
-        }else if(GameClearController.instance.MainBossClear){
+        }else if(GameController.instance.MainBossClear){
             gameObject.SetActive(false);
         }
         {

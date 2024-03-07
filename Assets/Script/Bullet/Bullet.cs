@@ -21,7 +21,7 @@ public class Bullet : MonoBehaviour
     {
         if (other.TryGetComponent(out EnemyBase enemy))
         {
-            enemy.TakeDamage(1);
+            enemy.TakeDamage(1);//敵に１のダメージを与える
 
             // ミサイルを破壊する。
             Destroy(gameObject);

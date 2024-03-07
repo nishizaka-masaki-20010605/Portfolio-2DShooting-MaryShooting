@@ -6,33 +6,33 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: "Assets/Scenes/\u30A6\u30DE\u5A18\u30B7\u30E5\u30FC\u30C6\u30A3\u30F3\u30B0\u88FD\u4F5C/Opening.unity"
+    path: "Assets/Scenes/\u30B7\u30E5\u30FC\u30C6\u30A3\u30F3\u30B0\u88FD\u4F5C/Opening.unity"
     guid: 42c48ba08f573ec428a7a5477ebd5174
   - enabled: 1
-    path: "Assets/Scenes/\u30A6\u30DE\u5A18\u30B7\u30E5\u30FC\u30C6\u30A3\u30F3\u30B0\u88FD\u4F5C/Setumei.unity"
+    path: "Assets/Scenes/\u30B7\u30E5\u30FC\u30C6\u30A3\u30F3\u30B0\u88FD\u4F5C/Setumei.unity"
     guid: 08cabda91f9c19b429f67417632b7e89
   - enabled: 1
-    path: "Assets/Scenes/\u30A6\u30DE\u5A18\u30B7\u30E5\u30FC\u30C6\u30A3\u30F3\u30B0\u88FD\u4F5C/Stage1.unity"
+    path: "Assets/Scenes/\u30B7\u30E5\u30FC\u30C6\u30A3\u30F3\u30B0\u88FD\u4F5C/Stage1.unity"
     guid: fbfe7129c6d549f45aa92eb393d225cd
   - enabled: 1
-    path: "Assets/Scenes/\u30A6\u30DE\u5A18\u30B7\u30E5\u30FC\u30C6\u30A3\u30F3\u30B0\u88FD\u4F5C/Stage2.unity"
+    path: "Assets/Scenes/\u30B7\u30E5\u30FC\u30C6\u30A3\u30F3\u30B0\u88FD\u4F5C/Stage2.unity"
     guid: f12901344ac72f74395536695ceeaf22
   - enabled: 1
-    path: "Assets/Scenes/\u30A6\u30DE\u5A18\u30B7\u30E5\u30FC\u30C6\u30A3\u30F3\u30B0\u88FD\u4F5C/Stage3.unity"
+    path: "Assets/Scenes/\u30B7\u30E5\u30FC\u30C6\u30A3\u30F3\u30B0\u88FD\u4F5C/Stage3.unity"
     guid: e997c7bb9b635df4c8aedfce5e2aff22
   - enabled: 1
-    path: "Assets/Scenes/\u30A6\u30DE\u5A18\u30B7\u30E5\u30FC\u30C6\u30A3\u30F3\u30B0\u88FD\u4F5C/Stage4.unity"
+    path: "Assets/Scenes/\u30B7\u30E5\u30FC\u30C6\u30A3\u30F3\u30B0\u88FD\u4F5C/Stage4.unity"
     guid: 4e337a2610ece9d4bbe3c4c098dd3ffb
   - enabled: 1
-    path: "Assets/Scenes/\u30A6\u30DE\u5A18\u30B7\u30E5\u30FC\u30C6\u30A3\u30F3\u30B0\u88FD\u4F5C/Stage5.unity"
+    path: "Assets/Scenes/\u30B7\u30E5\u30FC\u30C6\u30A3\u30F3\u30B0\u88FD\u4F5C/Stage5.unity"
     guid: 706c9e58d89addc4492fd4ff94a7313f
   - enabled: 1
-    path: "Assets/Scenes/\u30A6\u30DE\u5A18\u30B7\u30E5\u30FC\u30C6\u30A3\u30F3\u30B0\u88FD\u4F5C/Stage6.unity"
+    path: "Assets/Scenes/\u30B7\u30E5\u30FC\u30C6\u30A3\u30F3\u30B0\u88FD\u4F5C/Stage6.unity"
     guid: c830f076d646a1b47a43784016a95504
   - enabled: 1
-    path: "Assets/Scenes/\u30A6\u30DE\u5A18\u30B7\u30E5\u30FC\u30C6\u30A3\u30F3\u30B0\u88FD\u4F5C/Stage7.unity"
+    path: "Assets/Scenes/\u30B7\u30E5\u30FC\u30C6\u30A3\u30F3\u30B0\u88FD\u4F5C/Stage7.unity"
     guid: 51f61b2ea74f5cc4a8f36b5abadce555
   - enabled: 1
-    path: "Assets/Scenes/\u30A6\u30DE\u5A18\u30B7\u30E5\u30FC\u30C6\u30A3\u30F3\u30B0\u88FD\u4F5C/EndingStage.unity"
+    path: "Assets/Scenes/\u30B7\u30E5\u30FC\u30C6\u30A3\u30F3\u30B0\u88FD\u4F5C/EndingStage.unity"
     guid: 3150787a9165afe4ea8aa20db2bfebd3
   m_configObjects: {}
