@@ -470,6 +470,20 @@ MonoBehaviour:
   ContentText: {fileID: 208021731}
   a: {fileID: 562637663}
   BossStart: 1
+  Stage_one_Count: 0
+  Stage_one_CountNext: 0
+  Stage_two_Count: 0
+  Stage_two_CountNext: 0
+  Stage_three_Count: 0
+  Stage_three_CountNext: 0
+  Stage_four_Count: 0
+  Stage_four_CountNext: 0
+  Stage_five_Count: 0
+  Stage_five_CountNext: 0
+  Stage_six_Count: 0
+  Stage_six_CountNext: 0
+  Stage_seven_Count: 0
+  Stage_seven_CountNext: 0
   count: 0
   countNext: 0
   Player: {fileID: 1966256232}
@@ -1586,6 +1600,12 @@ MonoBehaviour:
   BulletPrefab: {fileID: 7279154344782672018, guid: 0f9db177ffed66c498ebd072414eb0aa, type: 3}
   PlayerHp: 10
   PlayerHpSlider: {fileID: 2112901081}
+  Player_speed: 8
+  MinX: -5.5
+  MaxX: 5.5
+  MinY: -4.5
+  MaxY: 6
+  EnemyDamage: 1
 --- !u!212 &1966256235
 SpriteRenderer:
   m_ObjectHideFlags: 0

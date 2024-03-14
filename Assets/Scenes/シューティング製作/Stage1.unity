@@ -473,40 +473,6 @@ MonoBehaviour:
   count: 0
   countNext: 0
   Player: {fileID: 3639411294135281051}
-  CharacterName1:
-  - "\u30CF\u30F3\u30CA"
-  - "\u30DE\u30EA\u30FC"
-  - "\u30CF\u30F3\u30CA"
-  - "\u30DE\u30EA\u30FC"
-  - "\u30DE\u30EA\u30FC"
-  - "\u30DE\u30EA\u30FC"
-  - "\u30DE\u30EA\u30FC"
-  - "\u30CF\u30F3\u30CA"
-  - "\u30CF\u30F3\u30CA"
-  - "\u30CF\u30F3\u30CA"
-  CharacterNameNext1:
-  - "\u30CF\u30F3\u30CA"
-  - "\u30DE\u30EA\u30FC"
-  - "\u30DE\u30EA\u30FC"
-  - "\u30CF\u30F3\u30CA"
-  - "\u30DE\u30EA\u30FC"
-  - "\u30CF\u30F3\u30CA"
-  - "\u30DE\u30EA\u30FC"
-  - "\u30CF\u30F3\u30CA"
-  - "\u30DE\u30EA\u30FC"
-  - "\u30CF\u30F3\u30CA"
-  CharacterName2:
-  - "\u30DE\u30EA\u30FC"
-  - "\u30DE\u30C1\u30EB\u30C0"
-  - "\u30DE\u30EA\u30FC"
-  - "\u30DE\u30EA\u30FC"
-  - "\u30DE\u30C1\u30EB\u30C0"
-  - "\u30DE\u30EA\u30FC"
-  - "\u30DE\u30C1\u30EB\u30C0"
-  - "\u30DE\u30C1\u30EB\u30C0"
-  - "\u30DE\u30C1\u30EB\u30C0"
-  - "\u30DE\u30EA\u30FC"
-  - "\u30DE\u30EA\u30FC"
   CharacterNameNext2:
   - "\u30DE\u30C1\u30EB\u30C0"
   - "\u30DE\u30EA\u30FC"
@@ -514,90 +480,6 @@ MonoBehaviour:
   - "\u30DE\u30EA\u30FC"
   - "\u30DE\u30C1\u30EB\u30C0"
   - "\u30DE\u30EA\u30FC"
-  CharacterName3:
-  - "\u30E1\u30EA\u30CA"
-  - "\u30E1\u30EA\u30CA"
-  - "\u30E1\u30EA\u30CA"
-  - "\u30E1\u30EA\u30CA"
-  - "\u30DE\u30EA\u30FC"
-  - "\u30E1\u30EA\u30CA"
-  - "\u30E1\u30EA\u30CA"
-  - "\u30DE\u30EA\u30FC"
-  - 
-  CharacterNameNext3:
-  - "\u30E1\u30EA\u30CA"
-  - "\u30DE\u30EA\u30FC"
-  - "\u30E1\u30EA\u30CA"
-  - "\u30E1\u30EA\u30CA"
-  - "\u30DE\u30EA\u30FC"
-  - "\u30E1\u30EA\u30CA"
-  - "\u30DE\u30EA\u30FC"
-  - 
-  CharacterNameFour:
-  - "\u8475"
-  - "\u30DE\u30EA\u30FC"
-  - "\u8475"
-  - "\u30DE\u30EA\u30FC"
-  - "\u8475"
-  CharacterNameNextFour:
-  - "\u30DE\u30EA\u30FC"
-  - "\u8475"
-  - "\u30DE\u30EA\u30FC"
-  - "\u8475"
-  - "\u30DE\u30EA\u30FC"
-  - "\u8475"
-  - "\u30E1\u30EA\u30FC"
-  CharacterNameFive:
-  - "\u685C"
-  - "\u30DE\u30EA\u30FC"
-  - "\u685C"
-  - "\u30DE\u30EA\u30FC"
-  - "\u685C"
-  - "\u685C"
-  - "\u685C"
-  CharacterNameNextFive:
-  - "\u685C"
-  - "\u30DE\u30EA\u30FC"
-  - "\u685C"
-  - "\u30DE\u30EA\u30FC"
-  - "\u30DE\u30EA\u30FC"
-  - "\u685C"
-  - "\u685C"
-  - 
-  CharacterNameSix:
-  - "\u30DE\u30EA\u30FC"
-  - "\u30C6\u30EC\u30B5"
-  - "\u30C6\u30EC\u30B5"
-  - "\u30DE\u30EA\u30FC"
-  - "\u30DE\u30EA\u30FC"
-  - 
-  CharacterNameNextSix:
-  - "\u30DE\u30EA\u30FC"
-  - "\u30C6\u30EC\u30B5"
-  - "\u30DE\u30EA\u30FC"
-  - "\u30C6\u30EC\u30B5"
-  - "\u30C6\u30EC\u30B5"
-  - "\u30DE\u30EA\u30FC"
-  - "\u30C6\u30EC\u30B5"
-  - 
-  CharacterNameSeven:
-  - "\u30D5\u30A3\u30AA\u30CA"
-  - "\u30DE\u30EA\u30FC"
-  - "\u30DE\u30EA\u30FC"
-  - "\u30D5\u30A3\u30AA\u30CA"
-  - "\u30DE\u30EA\u30FC"
-  - "\u30D5\u30A3\u30AA\u30CA"
-  - "\u30DE\u30EA\u30FC"
-  - "\u30D5\u30A3\u30AA\u30CA"
-  - "\u30D5\u30A3\u30AA\u30CA"
-  - "\u30D5\u30A3\u30AA\u30CA"
-  CharacterNameNextSeven:
-  - "\u30D5\u30A3\u30AA\u30CA"
-  - "\u30D5\u30A3\u30AA\u30CA"
-  - "\u30DE\u30EA\u30FC"
-  - "\u30DE\u30EA\u30FC"
-  - "\u30DE\u30EA\u30FC"
-  - 
 --- !u!114 &562637659
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -883,7 +765,7 @@ MonoBehaviour:
   StageSevenMiddleBossPrefab: {fileID: 6448639470694068642, guid: c6af1919ee1a8dd46bdd98bb14f73798, type: 3}
   StageSevenBossPrefab: {fileID: 987383683154523084, guid: 213e6823523c330408a06cbe4e38993d, type: 3}
   MiddleBossFlag: 0
-  MainBossFlag: 1
+  MainBossFlag: 0
   isOnceBoss: 1
 --- !u!1 &1313782978
 GameObject:
@@ -1719,8 +1601,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BulletPrefab: {fileID: 7279154344782672018, guid: 0f9db177ffed66c498ebd072414eb0aa, type: 3}
-  PlayerHp: 0
+  PlayerHp: 10
   PlayerHpSlider: {fileID: 2112901081}
+  Player_speed: 8
+  MinX: -6
+  MaxX: 6
+  MinY: -4.5
+  MaxY: 6
+  EnemyDamage: 1
 --- !u!1 &3639411294135281051
 GameObject:
   m_ObjectHideFlags: 0

@@ -8,12 +8,17 @@ public class Player : MonoBehaviour
     public GameObject BulletPrefab;
     GameController gameController;
 
-    public int PlayerHp;
+    public int PlayerHp;//10
     public Slider PlayerHpSlider;
+    public float Player_speed;//8
+    public float MinX;//-5.5
+    public float MaxX;//5.5
+    public float MinY;//-4.5
+    public float MaxY;//6
+    public int EnemyDamage;//1
     void Start()
     {
-        PlayerHp = 10;
-        PlayerHpSlider.value = 10;
+        PlayerHpSlider.value = PlayerHp;
 
         gameController = GameObject.Find("GameController").GetComponent<GameController>();
     }
@@ -44,8 +49,8 @@ public class Player : MonoBehaviour
     {
         if(other.CompareTag("EnemyBullet")||other.CompareTag("Enemy"))
         {
-        PlayerHpSlider.value -= 1;
-        PlayerHp -= 1;
+        PlayerHpSlider.value -= EnemyDamage;
+        PlayerHp -= EnemyDamage;
         Destroy(other.gameObject);
         }
 
@@ -63,11 +68,11 @@ public class Player : MonoBehaviour
         float y = Input.GetAxis("Vertical");
 
         Vector3 nextPosition = transform.position
-        + new Vector3(x, y, 0) * Time.deltaTime * 8f;
+        + new Vector3(x, y, 0) * Time.deltaTime * Player_speed;
 
         nextPosition = new Vector3(
-            Mathf.Clamp(nextPosition.x, -5.5f, 5.5f),
-            Mathf.Clamp(nextPosition.y, -4.5f, 6f),
+            Mathf.Clamp(nextPosition.x, MinX, MaxX),
+            Mathf.Clamp(nextPosition.y, MinY, MaxY),
             nextPosition.z
         );
         transform.position = nextPosition;

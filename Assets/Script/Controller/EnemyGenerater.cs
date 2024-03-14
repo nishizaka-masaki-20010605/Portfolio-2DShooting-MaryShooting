@@ -40,37 +40,30 @@ public class EnemyGenerater : MonoBehaviour
         switch (StageName)
         {
             case "Stage1":
-                Debug.Log("Stage1");
                 StartCoroutine(Stage1());
                 break;
 
             case "Stage2":
-                Debug.Log("Stage2");
                 StartCoroutine(Stage2());
                 break;
 
             case "Stage3":
-                Debug.Log("Stage3");
                 StartCoroutine(Stage3());
                 break;
 
             case "Stage4":
-                Debug.Log("Stage4");
                 StartCoroutine(Stage4());
                 break;
 
             case "Stage5":
-                Debug.Log("Stage5");
                 StartCoroutine(Stage5());
                 break;
 
             case "Stage6":
-                Debug.Log("Stage6");
                 StartCoroutine(Stage6());
                 break;
 
             case "Stage7":
-                Debug.Log("Stage7");
                 StartCoroutine(Stage7());
                 break;
         }

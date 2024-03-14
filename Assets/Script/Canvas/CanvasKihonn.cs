@@ -11,8 +11,9 @@ public class CanvasKihonn : MonoBehaviour
     [SerializeField] private CanvasGroup a;//透過度
     public static CanvasKihonn instance;
     public bool BossStart = true;//ボスステージに行くときにPlayerを再び動かせるようにする
-    int NextSceneCountMax;//中ボスとの会話が終わったかの判断につかう
-    int NextSceneCountMaxNext;//次のステージに行くかどうかの判断につかう
+    int NextSceneCountMax =0;//中ボスとの会話が終わったかの判断につかう
+    int NextSceneCountMaxNext=0;//次のステージに行くかどうかの判断につかう
+
     public int count = 0;//戦闘前の会話用
     public int countNext = 0;//戦闘後の会話用（分けるのはわかりやすくするため）
     int alphaCount = 0;//次のステージでCanwasが表示されないようにする保険
@@ -22,7 +23,7 @@ public class CanvasKihonn : MonoBehaviour
     public GameObject Player;
     string StageName;
 
-    //表情　
+    //表情一覧
     /* マリー　Kihonn　Nikkori Warai　Bikkuri Ikari　Konwaku Akire　Niyaniya　Ase　Kusyou　Gimonn Ikariwarai Hatena
     　　ハンナ　Kihonn Bikkuri　Nikkori Niyaniya　Naki Hatena　Warai　Kusyou
     　　マチルダ Kihonn Hatena Nikkori Kanasii　
@@ -44,7 +45,7 @@ public class CanvasKihonn : MonoBehaviour
                         "だめよ！",//ビックリ
                         "どうしてもほしけりゃあたしを倒して手に入れな！",//ビックリ
                         ""};//10
-    public string[] CharacterName1 = { "ハンナ",
+    string[] CharacterName1 = { "ハンナ",
                         "マリー",
                         "ハンナ",
                         "マリー",
@@ -71,7 +72,7 @@ public class CanvasKihonn : MonoBehaviour
                         "どうやって冬を越すの？？",//怒り
                         "あははは…",//苦笑
                         ""};//10
-    public string[] CharacterNameNext1 = { "ハンナ",
+    string[] CharacterNameNext1 = { "ハンナ",
                         "マリー",
                         "マリー",
                         "ハンナ",
@@ -100,7 +101,7 @@ public class CanvasKihonn : MonoBehaviour
                         "そういえばコイツかなりの天然だった…",//呆れ
                         "バターでいいからよこしなさい！！",//11//笑い
                         ""};
-    public string[] CharacterName2 = { "マリー",
+    string[] CharacterName2 = { "マリー",
                         "マチルダ",
                         "マリー",
                         "マリー",
@@ -147,7 +148,7 @@ public class CanvasKihonn : MonoBehaviour
                         "あんなだらしない胸をした女なんて友達じゃない",//赤面
                         "ふーん（ニヤニヤ）",//8//ニヤニヤ
                         ""};
-    public string[] CharacterName3 = { "メリナ",
+    string[] CharacterName3 = { "メリナ",
                         "メリナ",
                         "メリナ",
                         "メリナ",
@@ -170,7 +171,7 @@ public class CanvasKihonn : MonoBehaviour
                         "割らないように気をつけてください",//ニッコリ
                         "はーい",//7//汗
                         "",};
-    public string[] CharacterNameNext3 = { "メリナ",
+    string[] CharacterNameNext3 = { "メリナ",
                         "マリー",
                         "メリナ",
                         "メリナ",
@@ -190,7 +191,7 @@ public class CanvasKihonn : MonoBehaviour
                         "ついに魔法とは無関係な人が出てきましたね",//困惑
                         "私は忍者だからね",//5//ニッコリ
                         "",};
-    public string[] CharacterNameFour = { "葵",
+    string[] CharacterNameFour = { "葵",
                         "マリー",
                         "葵",
                         "マリー",
@@ -209,7 +210,7 @@ public class CanvasKihonn : MonoBehaviour
                         "べいきんぐぱうだー、とか聞いていますが",//ハテナ
                         "うーん、また持ち運びにくいものを…",//7//困惑
                         ""};
-    public string[] CharacterNameNextFour = { "マリー",
+    string[] CharacterNameNextFour = { "マリー",
                         "葵",
                         "マリー",
                         "葵",
@@ -231,7 +232,7 @@ public class CanvasKihonn : MonoBehaviour
                         "母君からマリー様を鍛えるように仰せつかっておりますゆえ",//ニッコリ
                         "いざ、参る！",//ニッコリ
                         ""};//8
-    public string[] CharacterNameFive = { "桜",
+    string[] CharacterNameFive = { "桜",
                         "マリー",
                         "桜",
                         "マリー",
@@ -253,7 +254,7 @@ public class CanvasKihonn : MonoBehaviour
                         "ふむ、でしたらテレサさんのところに行けばいかがでしょう",//疑問
                         "もしかしたら小麦を持っているかもしれません",//7//ニッコリ
                         ""};
-    public string[] CharacterNameNextFive = { "桜",
+    string[] CharacterNameNextFive = { "桜",
                         "マリー",
                         "桜",
                         "マリー",
@@ -272,7 +273,7 @@ public class CanvasKihonn : MonoBehaviour
                         "どいつもこいつも、冬の蓄えのことを考えていないなんて",//呆れ
                         "こらしめてやらなければね！",//5//ニッコリ
                         ""};//6
-    public string[] CharacterNameSix = { "マリー",
+    string[] CharacterNameSix = { "マリー",
                         "テレサ",
                         "テレサ",
                         "マリー",
@@ -290,7 +291,7 @@ public class CanvasKihonn : MonoBehaviour
                         "お砂糖、ありがたい！",//ニッコリ
                         "砂糖は高いんですよ？大切に使ってくださいね",//笑い
                         ""};//8
-    public string[] CharacterNameNextSix = { "マリー",
+    string[] CharacterNameNextSix = { "マリー",
                         "テレサ",
                         "マリー",
                         "テレサ",
@@ -315,7 +316,7 @@ public class CanvasKihonn : MonoBehaviour
                         "偏見は正さないといけませんね",//笑い
                         "暴力で！",//笑い
                         ""};//11
-    public string[] CharacterNameSeven = { "フィオナ",
+    string[] CharacterNameSeven = { "フィオナ",
                         "マリー",
                         "マリー",
                         "フィオナ",
@@ -337,7 +338,7 @@ public class CanvasKihonn : MonoBehaviour
                         "これでついにスコーンの材料が手に入るのね",//笑い
                         "早く帰ってスコーンを作っておこうっと",//5//ニッコリ
                         ""};//6
-    public string[] CharacterNameNextSeven = { "フィオナ",
+    string[] CharacterNameNextSeven = { "フィオナ",
                         "フィオナ",
                         "マリー",
                         "マリー",
@@ -360,36 +361,36 @@ public class CanvasKihonn : MonoBehaviour
         switch (StageName)//ステージ名によってメインボスとの会話テキスト数を取得
         {
             case "Stage1":
-                NextSceneCountMax = 9;
-                NextSceneCountMaxNext = 9;
+                NextSceneCountMax =  number.Length-2;
+                NextSceneCountMaxNext = numberNext.Length-2;
                 break;
 
             case "Stage2":
-                NextSceneCountMax = 10;
-                NextSceneCountMaxNext = 5;
+                NextSceneCountMax = number2.Length-2;
+                NextSceneCountMaxNext = numberNext2.Length-2;
                 break;
 
             case "Stage3":
-                NextSceneCountMax = 7;
-                NextSceneCountMaxNext = 6;
+                NextSceneCountMax = number3.Length-2;
+                NextSceneCountMaxNext = numberNext3.Length-2;
                 break;
 
             case "Stage4":
-                NextSceneCountMax = 4;
-                NextSceneCountMaxNext = 6;
+                NextSceneCountMax = number4.Length-2;
+                NextSceneCountMaxNext = numberNext4.Length-2;
                 break;
 
             case "Stage5":
-                NextSceneCountMax = 6;
-                NextSceneCountMaxNext = 6;
+                NextSceneCountMax = number5.Length-2;
+                NextSceneCountMaxNext = numberNext5.Length-2;
                 break;
             case "Stage6":
-                NextSceneCountMax = 4;
-                NextSceneCountMaxNext = 6;
+                NextSceneCountMax = number6.Length-2;
+                NextSceneCountMaxNext = numberNext6.Length-2;
                 break;
             case "Stage7":
-                NextSceneCountMax = 9;
-                NextSceneCountMaxNext = 4;
+                NextSceneCountMax = number7.Length-2;
+                NextSceneCountMaxNext = numberNext7.Length-2;
                 break;
         }
 
