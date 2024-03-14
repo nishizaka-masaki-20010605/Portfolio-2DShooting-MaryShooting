@@ -11,13 +11,15 @@ public class TeresaMiddle : EnemyBase
     public BossEnemyBullet EnemyBulletPrefab;
 
     private int count;
-    private float speed = 200.0f;
     public Slider EnemyHPSlider;
-    private int angle_x = 15;
-    private int angle_y = 75;
+    public int stage_six_middle_angle_x;//15
+    public int stage_six_middle_angle_y;//75
+    public int stage_six_middle_plus;//60
+    public int Stagesix_middle_count;//10
     void Start()
     {
-        HP = 600;
+        speed = GameData.instance.Enemy_bullet_speed;
+        HP = GameData.instance.Enemy_HP_base*GameData.instance.stage_boss_six;
         EnemyHPSlider.maxValue = HP;
         EnemyHPSlider.value = HP;
         StartCoroutine(CPU());
@@ -46,7 +48,7 @@ public class TeresaMiddle : EnemyBase
     IEnumerator CPU()
     {
         // 特定の位置より上だったら
-        while (transform.position.y > 3f)
+        while (transform.position.y > GameData.instance.Enemy_position)
         {
             transform.position -= new Vector3(0, 2, 0) * Time.deltaTime;
             yield return null; //1フレーム(0.02秒)待つ
@@ -59,15 +61,17 @@ public class TeresaMiddle : EnemyBase
     }
     IEnumerator Kousi(){
         // 特定の位置より上だったら
-        while (transform.position.y > 3f)
+        while (transform.position.y > GameData.instance.Enemy_position)
         {
             transform.position -= new Vector3(0, 2, 0) * Time.deltaTime;
             yield return null; //1フレーム(0.02秒)待つ
         }
         while(true){
-            angle_x  = angle_x + 60;
-            angle_y  = angle_y + 60;
-            yield return ShotConstantDirectionM(10, angle_x,angle_y);//oは数、ｘｙは角度
+            stage_six_middle_angle_x  = stage_six_middle_angle_x +stage_six_middle_plus;
+            stage_six_middle_angle_y  = stage_six_middle_angle_y +stage_six_middle_plus;
+            yield return ShotConstantDirectionM(Stagesix_middle_count,
+                                                stage_six_middle_angle_x,
+                                                stage_six_middle_angle_y);//oは数、ｘｙは角度
         }
     }
     private void ShotAim()
@@ -78,7 +82,7 @@ public class TeresaMiddle : EnemyBase
         Rigidbody EnemyBulletRb = EnemyBullet.GetComponent<Rigidbody>();
         Vector3 vector3 = player.transform.position - this.transform.position;
 
-        EnemyBulletRb.AddForce(vector3 * 30.0f);
+        EnemyBulletRb.AddForce(vector3 * GameData.instance.Aim_speed);
     }
     private void ShotAimN(int count)
     {

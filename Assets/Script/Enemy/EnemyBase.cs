@@ -5,6 +5,7 @@ using UnityEngine;
 public abstract class EnemyBase : MonoBehaviour
 {
     public int HP;
+    public float speed;
 
     public virtual void TakeDamage(int PlayerBulletPower)
     {

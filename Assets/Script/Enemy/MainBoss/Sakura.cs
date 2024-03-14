@@ -11,12 +11,17 @@ public class Sakura : EnemyBase
     public BossEnemyBullet EnemyBulletPrefab;
 
     private int count;
-    private float speed = 350.0f;
     public Slider EnemyHPSlider;
+
+    public int[] Stagefive_main_Wave_first;
+    public int[] Stagefive_main_Wave_second;
+    public int[] Stagefive_main_Wave_third;
+    public int[] Stagefive_main_Wave_fourth;
 
     void Start()
     {
-        HP = 500;
+        speed = GameData.instance.Enemy_bullet_speed*2;
+        HP = GameData.instance.Enemy_HP_base*GameData.instance.stage_boss_five;
         EnemyHPSlider.maxValue = HP;
         EnemyHPSlider.value = HP;
         StartCoroutine(CPU());
@@ -44,7 +49,7 @@ public class Sakura : EnemyBase
     IEnumerator CPU()
     {
         // 特定の位置より上だったら
-        while (transform.position.y > 3f)
+        while (transform.position.y > GameData.instance.Enemy_position)
         {
             transform.position -= new Vector3(0, 2, 0) * Time.deltaTime;
             yield return null; //1フレーム(0.02秒)待つ
@@ -69,7 +74,7 @@ public class Sakura : EnemyBase
         Rigidbody EnemyBulletRb = EnemyBullet.GetComponent<Rigidbody>();
         Vector3 vector3 = player.transform.position - this.transform.position;
 
-        EnemyBulletRb.AddForce(vector3 * 30.0f);
+        EnemyBulletRb.AddForce(vector3 * GameData.instance.Aim_speed);
     }
     private void ShotAimN(int count)
     {

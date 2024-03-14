@@ -470,57 +470,9 @@ MonoBehaviour:
   ContentText: {fileID: 208021731}
   a: {fileID: 562637663}
   BossStart: 1
-  Stage_one_Count: 0
-  Stage_one_CountNext: 0
-  Stage_two_Count: 0
-  Stage_two_CountNext: 0
-  Stage_three_Count: 0
-  Stage_three_CountNext: 0
-  Stage_four_Count: 0
-  Stage_four_CountNext: 0
-  Stage_five_Count: 0
-  Stage_five_CountNext: 0
-  Stage_six_Count: 0
-  Stage_six_CountNext: 0
-  Stage_seven_Count: 0
-  Stage_seven_CountNext: 0
   count: 0
   countNext: 0
   Player: {fileID: 1966256232}
-  CharacterName1:
-  - "\u30CF\u30F3\u30CA"
-  - "\u30DE\u30EA\u30FC"
-  - "\u30CF\u30F3\u30CA"
-  - "\u30DE\u30EA\u30FC"
-  - "\u30DE\u30EA\u30FC"
-  - "\u30DE\u30EA\u30FC"
-  - "\u30DE\u30EA\u30FC"
-  - "\u30CF\u30F3\u30CA"
-  - "\u30CF\u30F3\u30CA"
-  - "\u30CF\u30F3\u30CA"
-  CharacterNameNext1:
-  - "\u30CF\u30F3\u30CA"
-  - "\u30DE\u30EA\u30FC"
-  - "\u30DE\u30EA\u30FC"
-  - "\u30CF\u30F3\u30CA"
-  - "\u30DE\u30EA\u30FC"
-  - "\u30CF\u30F3\u30CA"
-  - "\u30DE\u30EA\u30FC"
-  - "\u30CF\u30F3\u30CA"
-  - "\u30DE\u30EA\u30FC"
-  - "\u30CF\u30F3\u30CA"
-  CharacterName2:
-  - "\u30DE\u30EA\u30FC"
-  - "\u30DE\u30C1\u30EB\u30C0"
-  - "\u30DE\u30EA\u30FC"
-  - "\u30DE\u30EA\u30FC"
-  - "\u30DE\u30C1\u30EB\u30C0"
-  - "\u30DE\u30EA\u30FC"
-  - "\u30DE\u30C1\u30EB\u30C0"
-  - "\u30DE\u30C1\u30EB\u30C0"
-  - "\u30DE\u30C1\u30EB\u30C0"
-  - "\u30DE\u30EA\u30FC"
-  - "\u30DE\u30EA\u30FC"
   CharacterNameNext2:
   - "\u30DE\u30C1\u30EB\u30C0"
   - "\u30DE\u30EA\u30FC"
@@ -528,90 +480,6 @@ MonoBehaviour:
   - "\u30DE\u30EA\u30FC"
   - "\u30DE\u30C1\u30EB\u30C0"
   - "\u30DE\u30EA\u30FC"
-  CharacterName3:
-  - "\u30E1\u30EA\u30CA"
-  - "\u30E1\u30EA\u30CA"
-  - "\u30E1\u30EA\u30CA"
-  - "\u30E1\u30EA\u30CA"
-  - "\u30DE\u30EA\u30FC"
-  - "\u30E1\u30EA\u30CA"
-  - "\u30E1\u30EA\u30CA"
-  - "\u30DE\u30EA\u30FC"
-  - 
-  CharacterNameNext3:
-  - "\u30E1\u30EA\u30CA"
-  - "\u30DE\u30EA\u30FC"
-  - "\u30E1\u30EA\u30CA"
-  - "\u30E1\u30EA\u30CA"
-  - "\u30DE\u30EA\u30FC"
-  - "\u30E1\u30EA\u30CA"
-  - "\u30DE\u30EA\u30FC"
-  - 
-  CharacterNameFour:
-  - "\u8475"
-  - "\u30DE\u30EA\u30FC"
-  - "\u8475"
-  - "\u30DE\u30EA\u30FC"
-  - "\u8475"
-  CharacterNameNextFour:
-  - "\u30DE\u30EA\u30FC"
-  - "\u8475"
-  - "\u30DE\u30EA\u30FC"
-  - "\u8475"
-  - "\u30DE\u30EA\u30FC"
-  - "\u8475"
-  - "\u30E1\u30EA\u30FC"
-  CharacterNameFive:
-  - "\u685C"
-  - "\u30DE\u30EA\u30FC"
-  - "\u685C"
-  - "\u30DE\u30EA\u30FC"
-  - "\u685C"
-  - "\u685C"
-  - "\u685C"
-  CharacterNameNextFive:
-  - "\u685C"
-  - "\u30DE\u30EA\u30FC"
-  - "\u685C"
-  - "\u30DE\u30EA\u30FC"
-  - "\u30DE\u30EA\u30FC"
-  - "\u685C"
-  - "\u685C"
-  - 
-  CharacterNameSix:
-  - "\u30DE\u30EA\u30FC"
-  - "\u30C6\u30EC\u30B5"
-  - "\u30C6\u30EC\u30B5"
-  - "\u30DE\u30EA\u30FC"
-  - "\u30DE\u30EA\u30FC"
-  - 
-  CharacterNameNextSix:
-  - "\u30DE\u30EA\u30FC"
-  - "\u30C6\u30EC\u30B5"
-  - "\u30DE\u30EA\u30FC"
-  - "\u30C6\u30EC\u30B5"
-  - "\u30C6\u30EC\u30B5"
-  - "\u30DE\u30EA\u30FC"
-  - "\u30C6\u30EC\u30B5"
-  - 
-  CharacterNameSeven:
-  - "\u30D5\u30A3\u30AA\u30CA"
-  - "\u30DE\u30EA\u30FC"
-  - "\u30DE\u30EA\u30FC"
-  - "\u30D5\u30A3\u30AA\u30CA"
-  - "\u30DE\u30EA\u30FC"
-  - "\u30D5\u30A3\u30AA\u30CA"
-  - "\u30DE\u30EA\u30FC"
-  - "\u30D5\u30A3\u30AA\u30CA"
-  - "\u30D5\u30A3\u30AA\u30CA"
-  - "\u30D5\u30A3\u30AA\u30CA"
-  CharacterNameNextSeven:
-  - "\u30D5\u30A3\u30AA\u30CA"
-  - "\u30D5\u30A3\u30AA\u30CA"
-  - "\u30DE\u30EA\u30FC"
-  - "\u30DE\u30EA\u30FC"
-  - "\u30DE\u30EA\u30FC"
-  - 
 --- !u!114 &562637659
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -759,6 +627,63 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &713762980
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2326029097066069363, guid: 7d03549924de8b34fbb19f75a2da0de9, type: 3}
+      propertyPath: m_Name
+      value: GameData
+      objectReference: {fileID: 0}
+    - target: {fileID: 5386366922807560029, guid: 7d03549924de8b34fbb19f75a2da0de9, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 6.722763
+      objectReference: {fileID: 0}
+    - target: {fileID: 5386366922807560029, guid: 7d03549924de8b34fbb19f75a2da0de9, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.25623044
+      objectReference: {fileID: 0}
+    - target: {fileID: 5386366922807560029, guid: 7d03549924de8b34fbb19f75a2da0de9, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.20423809
+      objectReference: {fileID: 0}
+    - target: {fileID: 5386366922807560029, guid: 7d03549924de8b34fbb19f75a2da0de9, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5386366922807560029, guid: 7d03549924de8b34fbb19f75a2da0de9, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5386366922807560029, guid: 7d03549924de8b34fbb19f75a2da0de9, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5386366922807560029, guid: 7d03549924de8b34fbb19f75a2da0de9, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5386366922807560029, guid: 7d03549924de8b34fbb19f75a2da0de9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5386366922807560029, guid: 7d03549924de8b34fbb19f75a2da0de9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5386366922807560029, guid: 7d03549924de8b34fbb19f75a2da0de9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 7d03549924de8b34fbb19f75a2da0de9, type: 3}
 --- !u!1 &827906174
 GameObject:
   m_ObjectHideFlags: 0
@@ -1601,10 +1526,6 @@ MonoBehaviour:
   PlayerHp: 10
   PlayerHpSlider: {fileID: 2112901081}
   Player_speed: 8
-  MinX: -5.5
-  MaxX: 5.5
-  MinY: -4.5
-  MaxY: 6
   EnemyDamage: 1
 --- !u!212 &1966256235
 SpriteRenderer:
@@ -1898,3 +1819,4 @@ SceneRoots:
   - {fileID: 681362140}
   - {fileID: 1711843518}
   - {fileID: 562637662}
+  - {fileID: 713762980}

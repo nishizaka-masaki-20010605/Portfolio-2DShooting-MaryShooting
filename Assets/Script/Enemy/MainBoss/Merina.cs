@@ -11,12 +11,17 @@ public class Merina : EnemyBase
     public BossEnemyBullet EnemyBulletPrefab;
 
     private int count;
-    private float speed = 200.0f;
     public Slider EnemyHPSlider;
+
+    public int[] stage_one_main_ShotSpiral_int_count_first;//3,36
+    public int[] stage_one_main_ShotSpiral_int_count_second;//3,35
+    public int[] stage_one_main_ShotSpiral_int_count_third;//3,38
+    public float[] stage_one_main_ShotSpriral_float_count;//0.02f
 
     void Start()
     {
-        HP = 300;
+        HP = GameData.instance.Enemy_HP_base*GameData.instance.stage_boss_three;
+        speed = GameData.instance.Enemy_bullet_speed;
         EnemyHPSlider.maxValue = HP;
         EnemyHPSlider.value = HP;
         StartCoroutine(CPU());
@@ -44,7 +49,7 @@ public class Merina : EnemyBase
     IEnumerator CPU()
     {
         // 特定の位置より上だったら
-        while (transform.position.y > 3f)
+        while (transform.position.y > GameData.instance.Enemy_position)
         {
             transform.position -= new Vector3(0, 2, 0) * Time.deltaTime;
             yield return null; //1フレーム(0.02秒)待つ

@@ -11,14 +11,17 @@ public class FionaMiddle : EnemyBase
     public BossEnemyBullet EnemyBulletPrefab;
 
     private int count;
-    private float speed = 200.0f;
     public Slider EnemyHPSlider;
-    private int angle_x = 0;
-    private int angle_y = 180;
+    public int Stage_seven_angle_x;//0
+    public int Stage_seven_angle_y;//180
+    public int Stage_seven_count;//1
+    public int Stage_seven_count_plus;//1
+    public float[] Stage_seven_spiral;//20, 12 ,0.1f
 
     void Start()
     {
-        HP = 700;
+        speed = GameData.instance.Enemy_bullet_speed;
+        HP = GameData.instance.Enemy_HP_base*GameData.instance.stage_boss_seven;
         EnemyHPSlider.maxValue = HP;
         EnemyHPSlider.value = HP;
         StartCoroutine(CPU());
@@ -47,22 +50,22 @@ public class FionaMiddle : EnemyBase
     IEnumerator CPU()
     {
         // 特定の位置より上だったら
-        while (transform.position.y > 3f)
+        while (transform.position.y > GameData.instance.Enemy_position)
         {
             transform.position -= new Vector3(0, 2, 0) * Time.deltaTime;
             yield return null; //1フレーム(0.02秒)待つ
         }
         while (true)
         {
-            angle_x  = angle_x + 1;
-            angle_y  = angle_y + 1;
-            yield return ShotConstantDirectionM(1, angle_x,angle_y);//oは数、ｘｙは角度
+            Stage_seven_angle_x  = Stage_seven_angle_x + Stage_seven_count_plus;
+            Stage_seven_angle_y  = Stage_seven_angle_y + Stage_seven_count_plus;
+            yield return ShotConstantDirectionM(Stage_seven_count, Stage_seven_angle_x,Stage_seven_angle_y);//oは数、ｘｙは角度
         }
     }
     IEnumerator Kaiten()
     {
         // 特定の位置より上だったら
-        while (transform.position.y > 3f)
+        while (transform.position.y > GameData.instance.Enemy_position)
         {
             transform.position -= new Vector3(0, 2, 0) * Time.deltaTime;
             yield return null; //1フレーム(0.02秒)待つ

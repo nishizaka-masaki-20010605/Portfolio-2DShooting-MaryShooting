@@ -11,12 +11,19 @@ public class Hanna : EnemyBase
     public BossEnemyBullet EnemyBulletPrefab;
 
     private int count;
-    private float speed = 200.0f;
     public Slider EnemyHPSlider;
 
+    public int Stage_one_main_boss_number;//40
+    public int Stage_one_main_boss_count;//180
+
+    public int Stage_one_ConstantDirection_one_right;
+    public int Stage_one_ConstantDirection_one_left;
+    public int Stage_one_ConstantDirection_two_right;
+    public int Stage_one_ConstantDirection_two_left;
     void Start()
     {
-        HP = 500;
+        speed = GameData.instance.Enemy_bullet_speed;
+        HP = GameData.instance.Enemy_HP_base*GameData.instance.Enemy_Boss_multiplication;
         EnemyHPSlider.maxValue = HP;
         EnemyHPSlider.value = HP;
         StartCoroutine(CPU());
@@ -45,7 +52,7 @@ public class Hanna : EnemyBase
     IEnumerator CPU()
     {
         // 特定の位置より上だったら
-        while (transform.position.y > 3f)
+        while (transform.position.y > GameData.instance.Enemy_position)
         {
             transform.position -= new Vector3(0, 2, 0) * Time.deltaTime;
             yield return null; //1フレーム(0.02秒)待つ
@@ -53,13 +60,16 @@ public class Hanna : EnemyBase
         while (true)
         {
             yield return new WaitForSeconds(1.0f);
-            yield return ShotRandomSpawnW(20,180,6.0f,-6.0f, 4.0f,2.0f);
+            yield return ShotRandomSpawnW(Stage_one_main_boss_number,
+                                          Stage_one_main_boss_count,
+                                          GameData.instance.MaxX,GameData.instance.MinX, 
+                                          GameData.instance.Enemy_position,0.0f);
         }
     }
     IEnumerator Kousi(){
         while(true){
-            yield return ShotConstantDirectionM(20, 150,210);//oは数、ｘｙは角度
-            yield return ShotConstantDirectionM(20, 135,225);//oは数、ｘｙは角度
+            yield return ShotConstantDirectionM(20, Stage_one_ConstantDirection_one_right,Stage_one_ConstantDirection_one_left);//oは数、ｘｙは角度
+            yield return ShotConstantDirectionM(20, Stage_one_ConstantDirection_two_right,Stage_one_ConstantDirection_two_left);//oは数、ｘｙは角度
         }
     }
 

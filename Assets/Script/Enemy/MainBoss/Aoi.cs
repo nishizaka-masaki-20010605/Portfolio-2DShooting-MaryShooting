@@ -11,14 +11,23 @@ public class Aoi : EnemyBase
     public BossEnemyBullet EnemyBulletPrefab;
 
     private int count;
-    private float speed = 200.0f;
-    private float speed_one = 100.0f;
-    private float speed_three = 300.0f;
     public Slider EnemyHPSlider;
+    private float speed_slow;
+    private float speed_fast;
+
+    public int[] stage_four_main_ConstantDirection_first;//20,210,150
+    public int[] stage_four_main_ConstantDirection_second;//24,210,150
+    public int[] stage_four_main_ConstantDirection_third;//24,210,150
+    public int[] stage_four_main_ConstantDirection_fourth;//35,240,110
+    public int[] stage_four_main_ConstantDirection_fifth;//21,210,180
+    public int[] stage_four_main_ConstantDirection_sixth;//20,180,150
 
     void Start()
     {
-        HP = 400;
+        speed = GameData.instance.Enemy_bullet_speed;
+        speed_slow = GameData.instance.Enemy_bullet_speed/2;
+        speed_fast = GameData.instance.Enemy_bullet_speed*3/2;
+        HP = GameData.instance.Enemy_HP_base*GameData.instance.stage_boss_four;
         EnemyHPSlider.maxValue = HP;
         EnemyHPSlider.value = HP;
         StartCoroutine(CPU());
@@ -46,7 +55,7 @@ public class Aoi : EnemyBase
     IEnumerator CPU()
     {
         // 特定の位置より上だったら
-        while (transform.position.y > 3f)
+        while (transform.position.y > GameData.instance.Enemy_position)
         {
             transform.position -= new Vector3(0, 2, 0) * Time.deltaTime;
             yield return null; //1フレーム(0.02秒)待つ
@@ -178,7 +187,7 @@ public class Aoi : EnemyBase
        Instantiate(EnemyBulletPrefab, new Vector3(3.0f,2f,0f), Quaternion.identity);
         Rigidbody EnemyBulletRb = EnemyBullet.GetComponent<Rigidbody>();
         Vector3 angle = new Vector3(0, 0, count);
-        EnemyBulletRb.AddForce(Quaternion.Euler(angle) * Vector3.up * speed_one);
+        EnemyBulletRb.AddForce(Quaternion.Euler(angle) * Vector3.up * speed_slow);
     }
     private void Shot_left_position_three(float count)
     {
@@ -187,7 +196,7 @@ public class Aoi : EnemyBase
        Instantiate(EnemyBulletPrefab, new Vector3(-3.0f,2f,0f), Quaternion.identity);
         Rigidbody EnemyBulletRb = EnemyBullet.GetComponent<Rigidbody>();
         Vector3 angle = new Vector3(0, 0, count);
-        EnemyBulletRb.AddForce(Quaternion.Euler(angle) * Vector3.up * speed_three);
+        EnemyBulletRb.AddForce(Quaternion.Euler(angle) * Vector3.up * speed_fast);
     }
 
     private void Shot(float count)
@@ -206,7 +215,7 @@ public class Aoi : EnemyBase
        Instantiate(EnemyBulletPrefab, transform.position, Quaternion.identity);
         Rigidbody EnemyBulletRb = EnemyBullet.GetComponent<Rigidbody>();
         Vector3 angle = new Vector3(0, 0, count);
-        EnemyBulletRb.AddForce(Quaternion.Euler(angle) * Vector3.up * speed_three);
+        EnemyBulletRb.AddForce(Quaternion.Euler(angle) * Vector3.up * speed_fast);
     }
     private void Shot_one(float count)
     {
@@ -215,6 +224,6 @@ public class Aoi : EnemyBase
        Instantiate(EnemyBulletPrefab, transform.position, Quaternion.identity);
         Rigidbody EnemyBulletRb = EnemyBullet.GetComponent<Rigidbody>();
         Vector3 angle = new Vector3(0, 0, count);
-        EnemyBulletRb.AddForce(Quaternion.Euler(angle) * Vector3.up * speed_one);
+        EnemyBulletRb.AddForce(Quaternion.Euler(angle) * Vector3.up * speed_slow);
     }
 }

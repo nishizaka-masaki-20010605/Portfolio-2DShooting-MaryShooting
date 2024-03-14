@@ -11,10 +11,6 @@ public class Player : MonoBehaviour
     public int PlayerHp;//10
     public Slider PlayerHpSlider;
     public float Player_speed;//8
-    public float MinX;//-5.5
-    public float MaxX;//5.5
-    public float MinY;//-4.5
-    public float MaxY;//6
     public int EnemyDamage;//1
     void Start()
     {
@@ -71,8 +67,8 @@ public class Player : MonoBehaviour
         + new Vector3(x, y, 0) * Time.deltaTime * Player_speed;
 
         nextPosition = new Vector3(
-            Mathf.Clamp(nextPosition.x, MinX, MaxX),
-            Mathf.Clamp(nextPosition.y, MinY, MaxY),
+            Mathf.Clamp(nextPosition.x, GameData.instance.MinX, GameData.instance.MaxX),
+            Mathf.Clamp(nextPosition.y, GameData.instance.MinY, GameData.instance.MaxY),
             nextPosition.z
         );
         transform.position = nextPosition;

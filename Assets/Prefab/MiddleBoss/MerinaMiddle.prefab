@@ -203,9 +203,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HP: 0
+  speed: 0
   player: {fileID: 0}
   EnemyBulletPrefab: {fileID: 7644063394340569060, guid: 138406617a8b51a499d5c1142351c703, type: 3}
   EnemyHPSlider: {fileID: 7373303136106653544}
+  stage_one_middle_ShotSpiral_int_count_first: 0300000024000000
+  stage_one_middle_ShotSpiral_int_count_second: 0300000011000000
+  stage_one_middle_ShotSpriral_float_count:
+  - 0.02
 --- !u!54 &1123717171342592410
 Rigidbody:
   m_ObjectHideFlags: 0

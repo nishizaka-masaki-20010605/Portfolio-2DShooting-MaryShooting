@@ -11,12 +11,14 @@ public class MatildaMiddle : EnemyBase
     public BossEnemyBullet EnemyBulletPrefab;
 
     private int count;
-    private float speed = 200.0f;
+    public int[] Stage_two_alldirection;
+    public int[] Stage_two_WaveShot;
     public Slider EnemyHPSlider;
 
     void Start()
     {
-        HP = 200;
+        speed = GameData.instance.Enemy_bullet_speed;
+        HP = GameData.instance.Enemy_HP_base*GameData.instance.stage_boss_two;
         EnemyHPSlider.maxValue = HP;
         EnemyHPSlider.value = HP;
         StartCoroutine(CPU());
@@ -44,7 +46,7 @@ public class MatildaMiddle : EnemyBase
     IEnumerator CPU()
     {
         // 特定の位置より上だったら
-        while (transform.position.y > 3f)
+        while (transform.position.y > GameData.instance.Enemy_position)
         {
             transform.position -= new Vector3(0, 2, 0) * Time.deltaTime;
             yield return null; //1フレーム(0.02秒)待つ
@@ -52,9 +54,9 @@ public class MatildaMiddle : EnemyBase
         while (true)
         {
             yield return new WaitForSeconds(1.0f);
-            yield return ShotAllDirection(18,4);
+            yield return ShotAllDirection(Stage_two_alldirection[0],Stage_two_alldirection[1]);
             yield return new WaitForSeconds(1.0f);
-            yield return WaveMShotN(10,10);
+            yield return WaveMShotN(Stage_two_WaveShot[0],Stage_two_WaveShot[1]);
         }
     }
 

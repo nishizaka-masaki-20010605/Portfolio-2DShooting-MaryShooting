@@ -11,12 +11,15 @@ public class HannaMiddle : EnemyBase
     public BossEnemyBullet EnemyBulletPrefab;
 
     private int count;
-    private float speed = 200.0f;
     public Slider EnemyHPSlider;
+
+    public int Stage_one_middle_boss_number;//40
+    public int Stage_one_middle_boss_count;//180
 
     void Start()
     {
-        HP = 100;
+        speed = GameData.instance.Enemy_bullet_speed;
+        HP = GameData.instance.Enemy_HP_base;
         EnemyHPSlider.maxValue = HP;
         EnemyHPSlider.value = HP;
         StartCoroutine(CPU());
@@ -44,7 +47,7 @@ public class HannaMiddle : EnemyBase
     IEnumerator CPU()
     {
         // 特定の位置より上だったら
-        while (transform.position.y > 3f)
+        while (transform.position.y > GameData.instance.Enemy_position)
         {
             transform.position -= new Vector3(0, 2, 0) * Time.deltaTime;
             yield return null; //1フレーム(0.02秒)待つ
@@ -52,7 +55,10 @@ public class HannaMiddle : EnemyBase
         while (true)
         {
             yield return new WaitForSeconds(1.0f);
-            yield return ShotRandomSpawnW(40,180,5.0f,-5.0f, 3.0f,0.0f);
+            yield return ShotRandomSpawnW(Stage_one_middle_boss_number,
+                                          Stage_one_middle_boss_count,
+                                          GameData.instance.MaxX,GameData.instance.MinX, 
+                                          GameData.instance.Enemy_position,0.0f);
         }
     }
 

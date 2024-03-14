@@ -176,9 +176,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HP: 0
+  speed: 0
   player: {fileID: 0}
   EnemyBulletPrefab: {fileID: 7644063394340569060, guid: 138406617a8b51a499d5c1142351c703, type: 3}
   EnemyHPSlider: {fileID: 3976069343490541547}
+  Stagefive_main_Wave_first: 050000000c000000
+  Stagefive_main_Wave_second: 0c00000005000000
+  Stagefive_main_Wave_third: 0800000008000000
+  Stagefive_main_Wave_fourth: 060000000a000000
 --- !u!54 &-7172938769614523037
 Rigidbody:
   m_ObjectHideFlags: 0

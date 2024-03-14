@@ -278,9 +278,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HP: 0
+  speed: 0
   player: {fileID: 0}
   EnemyBulletPrefab: {fileID: 7644063394340569060, guid: 138406617a8b51a499d5c1142351c703, type: 3}
   EnemyHPSlider: {fileID: 539794704648726434}
+  Stage_one_middle_boss_number: 40
+  Stage_one_middle_boss_count: 180
 --- !u!54 &6203834359514457314
 Rigidbody:
   m_ObjectHideFlags: 0
